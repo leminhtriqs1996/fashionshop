@@ -88,6 +88,10 @@
         <servlet-name>StaffLogoutServlet</servlet-name>
         <servlet-class>controller.StaffLogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffUpdateUserServlet</servlet-name>
+        <servlet-class>controller.StaffUpdateUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServerlet</servlet-name>
         <url-pattern>/LoginServerlet</url-pattern>
@@ -163,6 +167,10 @@
     <servlet-mapping>
         <servlet-name>StaffLogoutServlet</servlet-name>
         <url-pattern>/StaffLogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffUpdateUserServlet</servlet-name>
+        <url-pattern>/StaffUpdateUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

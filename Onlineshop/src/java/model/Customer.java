@@ -20,8 +20,10 @@ public class Customer {
         private String PASSWORD;
         private String ADDRESS;
         private String GENDER;
-        
-    public Customer(int ID_CUSTOMER, String NAME, java.sql.Date DATEOFBIRTH, String PHONE, String EMAIL, String PASSWORD, String ADDRESS, String GENDER) {
+        private int STATE;
+
+    
+    public Customer(int ID_CUSTOMER, String NAME, java.sql.Date DATEOFBIRTH, String PHONE, String EMAIL, String PASSWORD, String ADDRESS, String GENDER, int STATE) {
         this.ID_CUSTOMER = ID_CUSTOMER;
         this.NAME = NAME;
         this.DATEOFBIRTH = DATEOFBIRTH;
@@ -30,6 +32,7 @@ public class Customer {
         this.PASSWORD = PASSWORD;
         this.ADDRESS = ADDRESS;
         this.GENDER = GENDER;
+        this.STATE = STATE;
     }
 
     public Customer() {
@@ -98,6 +101,14 @@ public class Customer {
     public void setGENDER(String GENDER) {
         this.GENDER = GENDER;
     }
+    public int getSTATE() {
+        return STATE;
+    }
+
+    public void setSTATE(int STATE) {
+        this.STATE = STATE;
+    }
+        
 
     @Override
     public String toString() {

@@ -73,7 +73,7 @@ public class ResetPassword extends HttpServlet {
 
                 Customer u = userDAO.getUser(username);
 //				Customer new_user = new Customer(u.getID_CUSTOMER(), username, "passwordreset", u.getDATEOFBIRTH(), u.getGENDER(), u.getEMAIL(), u.getPHONE(), u.getADDRESS());
-                Customer new_user = new Customer(u.getID_CUSTOMER(), username, u.getDATEOFBIRTH(), u.getPHONE(), u.getEMAIL(), "passwordreset", u.getADDRESS(), u.getGENDER());
+                Customer new_user = new Customer(u.getID_CUSTOMER(), username, u.getDATEOFBIRTH(), u.getPHONE(), u.getEMAIL(), "passwordreset", u.getADDRESS(), u.getGENDER(),1);
 
                 userDAO.updateUser(new_user);
                 url = "/login.jsp";

@@ -3,16 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/Staff_Add_New_Product.jsp</file>
-            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/Staff_Product.jsp</file>
-            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/dao/ProductDAOImpl.java</file>
             <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/Staff_View_Users.jsp</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/controller/StaffUpdateProductServlet.java</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/WEB-INF/web.xml</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/controller/ConfirmServlet.java</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/StaffLogin.jsp</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/Staff_Add_New_Product.jsp</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/controller/StaffAddProductServlet.java</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/controller/StaffUpdateUserServlet.java</file>
             <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/dao/UserDAOImpl.java</file>
-            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/controller/LoginFilter.java</file>
             <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/controller/StaffLoginServlet.java</file>
-            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/Staff_Updates_Product.jsp</file>
-            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/includes/StaffLeft.jsp</file>
-            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/Staff_Dashboard.jsp</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/model/Customer.java</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/dao/UserDAO.java</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/src/java/controller/ResetPassword.java</file>
+            <file>file:/D:/tai%20lieu/CN4/java%20web/project%20nhom/PRJ321/Onlineshop/web/Staff_Edit_User.jsp</file>
         </group>
     </open-files>
 </project-private>

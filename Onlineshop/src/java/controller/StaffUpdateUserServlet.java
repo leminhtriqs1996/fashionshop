@@ -5,25 +5,20 @@
  */
 package controller;
 
-import dao.CategoryDAOImpl;
-import dao.ProductDAOImpl;
+import dao.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
-import model.Product;
+import model.Customer;
 
 /**
  *
  * @author tri
  */
-public class StaffAddProductServlet extends HttpServlet {
+public class StaffUpdateUserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +37,10 @@ public class StaffAddProductServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet StaffAddProductServlet</title>");            
+            out.println("<title>Servlet StaffUpdateUserServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet StaffAddProductServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet StaffUpdateUserServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,7 +58,14 @@ public class StaffAddProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int Customer_id = Integer.parseInt(request.getParameter("CustomerID"));
+        
+        UserDAOImpl userDao = new UserDAOImpl();
+        Customer c = userDao.getUser(Customer_id);
+        
+        request.setAttribute("user", c);
+        
+        request.getRequestDispatcher("Staff_Edit_User.jsp").forward(request, response);
     }
 
     /**
@@ -77,53 +79,16 @@ public class StaffAddProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Product product = null;
-        ProductDAOImpl p = new ProductDAOImpl();
+        int Customer_id = Integer.parseInt(request.getParameter("CustomerID"));
+        int state = Integer.parseInt(request.getParameter("state"));
+        UserDAOImpl userDao = new UserDAOImpl();
+        Customer c = userDao.getUser(Customer_id);
+        c.setSTATE(state);
         
-            int productID = Integer.parseInt(request.getParameter("productID"));
-            String name = request.getParameter("productName");
-            String size = request.getParameter("productSize");
-            String color = request.getParameter("productColor");
-            String country = request.getParameter("productCountry");
-            double price = Double.parseDouble(request.getParameter("productPrice"));
-            int quantityRemaining = Integer.parseInt(request.getParameter("quantityRemaining"));
-            
-            String gender = request.getParameter("productGender");
-            String fabric = request.getParameter("productFabric");
-            int categoryId= Integer.parseInt(request.getParameter("categoryID"));
-            
-            String supplier = request.getParameter("productSupplier");
-            String image = request.getParameter("productImage");
-            String information = request.getParameter("productInformation");
-            
-            
-            
-
-            
-            // create id product and id category && add into product table in database
-            
-            //create product and set attribute of product
-            product = new Product();
-            product.setID_PRODUCT(productID);
-            product.setNAME(name);
-            product.setSize(size);
-            product.setColor(color);
-            product.setCountry(country);
-            product.setPRICE(price);
-            product.setQuantity_remaining(quantityRemaining);
-            product.setGender(gender);
-            product.setIMAGE(image);
-            product.setKindOfFabric(fabric);
-            product.setID_CATEGORY(categoryId);
-            product.setSUPPLIER(supplier);
-            product.setINFORMATION(information);
-            
-            
-        p.addProduct(product);
-
-        request.getRequestDispatcher("Staff_Product.jsp").forward(request, response);
-    
+        userDao.updateUser(c);
+        request.getRequestDispatcher("Staff_View_Users.jsp").forward(request, response);
     }
+
     /**
      * Returns a short description of the servlet.
      *
@@ -135,4 +100,3 @@ public class StaffAddProductServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-

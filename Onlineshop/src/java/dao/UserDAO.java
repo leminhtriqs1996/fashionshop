@@ -17,7 +17,8 @@ public interface UserDAO {
 	
 	public void updateUser(Customer u);
 	
-	public Customer getUser(String username);
+	public Customer getUser(int userid);
+        public Customer getUser(String username);
         
         public int getLastIndextID();
                 

@@ -73,6 +73,7 @@
                                 </div>
                             </div>
                             <!-- END DEFAULT DATATABLE -->
+                            <button class="btn btn-success"><a href="Staff_Add_New_Product.jsp"><i class="fa fa-plus"> Want to add new product ? </i></button>
                         </div>
                     </div>                                
                     

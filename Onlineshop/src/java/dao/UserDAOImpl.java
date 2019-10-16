@@ -29,7 +29,7 @@ public class UserDAOImpl implements UserDAO {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-		String sql = "INSERT INTO CUSTOMER VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO CUSTOMER VALUES(?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) con.prepareStatement(sql);
@@ -41,6 +41,7 @@ public class UserDAOImpl implements UserDAO {
 			ps.setString(6, u.getPASSWORD());
                         ps.setString(7, u.getADDRESS());
                         ps.setString(8, u.getGENDER());
+                        ps.setInt(9, 1);
                         ps.executeUpdate();
 			con.close();
 		} catch (SQLException e) {
@@ -115,7 +116,7 @@ public class UserDAOImpl implements UserDAO {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-		String sql = "UPDATE CUSTOMER SET NAME=?, PASS=?, DATEOFBIRTH=?, GENDER=?, EMAIL=?, TEL=?, CUSTOMER_ADDRESS=? WHERE ID_CUSTOMER=?";
+		String sql = "UPDATE CUSTOMER SET NAME=?, PASS=?, DATEOFBIRTH=?, GENDER=?, EMAIL=?, TEL=?, CUSTOMER_ADDRESS=?, STATE=? WHERE ID_CUSTOMER=?";
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);
@@ -126,7 +127,8 @@ public class UserDAOImpl implements UserDAO {
 			ps.setString(5, u.getEMAIL());
 			ps.setString(6, u.getPHONE());
 			ps.setString(7, u.getADDRESS());
-			ps.setInt(8, u.getID_CUSTOMER());
+                        ps.setInt(8, u.getSTATE());
+			ps.setInt(9, u.getID_CUSTOMER());
 			ps.executeUpdate();
 			con.close();
 		} catch (SQLException e) {
@@ -136,18 +138,19 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public Customer getUser(String name) {
+	public Customer getUser(int customerID) {
 		Connection con=null;
             try {
                 con = DBConnect.getDBConnection();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-		String sql = "SELECT * FROM CUSTOMER WHERE NAME='" + name + "'";
+		String sql = "SELECT * FROM CUSTOMER WHERE ID_CUSTOMER=?";
 		Customer u = new Customer();
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);
+                        ps.setInt(1, customerID);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				int user_id= rs.getInt("ID_CUSTOMER");
@@ -157,10 +160,46 @@ public class UserDAOImpl implements UserDAO {
                                 String password = rs.getString("PASS");
                                 String diachi = rs.getString("CUSTOMER_ADDRESS");
                                 String gioitinh = rs.getString("GENDER");
+                                int state = rs.getInt("STATE");
 				
 				
 				
-				u = new Customer(user_id, username, null, sdt, email, password, diachi, gioitinh);
+				u = new Customer(user_id, username, null, sdt, email, password, diachi, gioitinh,state);
+			}
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return u;
+	}
+        @Override
+	public Customer getUser(String customerName) {
+		Connection con=null;
+            try {
+                con = DBConnect.getDBConnection();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+		String sql = "SELECT * FROM CUSTOMER WHERE NAME=?";
+		Customer u = new Customer();
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(sql);
+                        ps.setString(1, customerName);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int user_id= rs.getInt("ID_CUSTOMER");
+				String username = rs.getString("NAME");
+				String sdt = rs.getString("TEL");
+				String email = rs.getString("EMAIL");
+                                String password = rs.getString("PASS");
+                                String diachi = rs.getString("CUSTOMER_ADDRESS");
+                                String gioitinh = rs.getString("GENDER");
+                                int state = rs.getInt("STATE");
+				
+				
+				
+				u = new Customer(user_id, username, null, sdt, email, password, diachi, gioitinh,state);
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -275,6 +314,7 @@ public class UserDAOImpl implements UserDAO {
                 String pw = rs.getString("PASS");
                 String diachi = rs.getString("CUSTOMER_ADDRESS");
                 String gioitinh = rs.getString("GENDER");
+                int state = rs.getInt("STATE");
                 c.setID_CUSTOMER(user_id);
                 c.setNAME(userN);
                 c.setPASSWORD(pw);
@@ -282,6 +322,7 @@ public class UserDAOImpl implements UserDAO {
                 c.setPHONE(sdt);
                 c.setEMAIL(email);
                 c.setGENDER(gioitinh);
+                c.setSTATE(state);
                 listCustomer.add(c);
             }
             con.close();
@@ -293,6 +334,7 @@ public class UserDAOImpl implements UserDAO {
         }
         return listCustomer;
     }
+
     
     
 

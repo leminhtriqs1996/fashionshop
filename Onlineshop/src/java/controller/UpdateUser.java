@@ -93,7 +93,7 @@ public class UpdateUser extends HttpServlet {
         try {
             if (err.length() == 0) {
 //				Customer u= new Customer(Integer.parseInt(user_id), username, password, ngaysinh, gioitinh, email, sdt, diachi, "2");
-                Customer u = new Customer(Integer.parseInt(user_id), username, ngaysinh, sdt, email, password, diachi, gioitinh);
+                Customer u = new Customer(Integer.parseInt(user_id), username, ngaysinh, sdt, email, password, diachi, gioitinh, 1);
                 userDAO.updateUser(u);
                 url = "/index.jsp";
             } else {

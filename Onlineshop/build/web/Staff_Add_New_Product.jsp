@@ -7,14 +7,14 @@
 <%@ include file="/includes/StaffHeader.jsp" %>
 <!-- start body -->
 
-        <title> Update Products </title>
+        <title> Add Products </title>
         
 <!-- start body -->
 <%@ include file="/includes/StaffLeft.jsp" %>
 
 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Update Product</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Add Product</h2>
                 </div>
                 <!-- END PAGE TITLE -->                
 
@@ -23,10 +23,10 @@
                 
                     <div class="row">
                         <div class="col-md-12">
-                            <form class="form-horizontal" method="POST" action="StaffUpdateProductServlet">
+                            <form class="form-horizontal" method="POST" action="StaffAddProductServlet">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><strong>Update</strong> Product</h3>
+                                    <h3 class="panel-title"><strong>Add</strong> Product</h3>
                                     <ul class="panel-controls">
                                         <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
                                     </ul>
@@ -39,14 +39,23 @@
                                     <div class="row">
                                         
                                         <div class="col-md-6">
-                                            <input type="hidden" name="codeProduct" value="${product.ID_PRODUCT}" />
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Category ID</label>
-                                                <div class="col-md-9">                                            
+                                            <div class="form-group">                                        
+                                                <label class="col-md-3 control-label">Product ID</label>
+                                                <div class="col-md-9 col-xs-12">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                        <input type="text" class="form-control" name="categoryID" value="${product.ID_CATEGORY}"/>
-                                                    </div>                                            
+                                                        <input type="text" class="form-control" name="productID" value=""/>
+                                                    </div>            
+                                                    <span class="help-block">Must be a number</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">                                        
+                                                <label class="col-md-3 control-label">Product Category ID</label>
+                                                <div class="col-md-9 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                        <input type="text" class="form-control" name="categoryID" value=""/>
+                                                    </div>            
                                                     <span class="help-block">Must be a number</span>
                                                 </div>
                                             </div>
@@ -62,16 +71,6 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Size</label>
-                                                <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                        <input type="text" class="form-control" name="productSize" value="${product.size}"/>
-                                                    </div>            
-                                                    <span class="help-block">Example : XL, XXL</span>
-                                                </div>
-                                            </div>
                                                     
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 control-label">Size</label>
@@ -163,6 +162,18 @@
                                                         <input type="text" class="form-control" name="productSupplier" value="${product.SUPPLIER}"/>
                                                     </div>            
                                                     <span class="help-block">Example : Le Minh Tri Shop</span>
+                                                </div>
+                                            </div>  
+                                                    
+                                                    
+                                                    <div class="form-group">                                        
+                                                <label class="col-md-3 control-label">Image</label>
+                                                <div class="col-md-9 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                        <input type="text" class="form-control" name="productImage" value="${product.SUPPLIER}"/>
+                                                    </div>            
+                                                    <span class="help-block">Example : aogiap.jpg </span>
                                                 </div>
                                             </div>  
                                                     

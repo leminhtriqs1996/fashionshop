@@ -102,7 +102,7 @@ public class re extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("cart", cart);
                                 
-				userDAO.addUser(new Customer(userDao.genarateId(0, 10000), username, ngaysinh, sdt, email, password, diachi, gioitinh));
+				userDAO.addUser(new Customer(userDao.genarateId(0, 10000), username, ngaysinh, sdt, email, password, diachi, gioitinh, 1));
 				Customer c = userDAO.Userlogin(username, password);
                                 
                                 session.setAttribute("user", c);

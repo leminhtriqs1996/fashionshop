@@ -46,6 +46,8 @@
                                                 <th>Email</th>
                                                 <th>Address</th>
                                                 <th>Gender</th>
+                                                <th> State </th>
+                                                <th> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -57,7 +59,21 @@
                                                     <td> ${user.EMAIL} </td>
                                                     <td> ${user.ADDRESS} </td>
                                                     <td> ${user.GENDER} </td>
-                                                </tr>
+                                                    
+                                                    <td>
+                                                        <c:if test="${user.STATE == 1}">
+                                                            <span style="color: greenyellow"> Active </span>
+                                                        </c:if>
+                                                        <c:if test="${user.STATE == 0}">
+                                                            <span style="color: red"> Deactive </span>
+                                                        </c:if>
+                                                    </td>
+                                            
+                                                    <td> 
+                                                        <button type="button" class="btn btn-success active"> <a href="StaffUpdateUserServlet?CustomerID=${user.ID_CUSTOMER}" > Update </button> 
+                                                    </td>
+                                                    
+                                                </tr> 
                                             </c:forEach>
                                         </tbody>
                                     </table>
